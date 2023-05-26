@@ -31,3 +31,13 @@ man ls
 # Because instead of [man] you can see examples of the many
 # commands using it.
 tldr ls
+
+# [wc] is used to count lines, words and bytes
+# Count all lines in a file:
+wc --lines ~/.bashrc
+# Count all words in a file:
+wc --words ~/.bashrc
+# Count all bytes in a file:
+wc --bytes ~/.bashrc
+# Count all characters in a file (taking multi-byte characters into account):
+wc --chars ~/.bashrc
