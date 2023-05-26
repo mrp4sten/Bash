@@ -20,3 +20,14 @@ echo "saving an output" >./savingOutput.txt
 # to overwrite in the previous file or add content
 # we can use [>>] for example:
 echo "overwriting file" >>./savingOutput.txt
+
+# You can see the list of your files with [ls] command
+ls ~/
+
+# You can read the manual of many commands with the [man] command
+man ls
+
+# But I recommend you that install in your system [tldr]
+# Because instead of [man] you can see examples of the many
+# commands using it.
+tldr ls
