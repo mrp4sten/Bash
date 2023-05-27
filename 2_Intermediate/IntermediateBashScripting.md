@@ -63,3 +63,23 @@ cat spaces\ in\ this\ filename\
 exit
 ssh bandit3@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 3 >> Level 4
+
+```bash
+# We need how to use in many ways the command [ls]
+cd inhere
+ls -a # to show hidden files
+ls -a inhere/ # or in once line
+find . # or find a files in the path using regex
+find . -type f # or find only files
+
+# or display files like a pro
+# <%f\t%p\t%u\t%g\t%m\n"> files/tab&path/tab&user/tab&user_owner/tab&**groups**/tab&mode(permissions code)/next line
+# column -t to split columns automatically and auto-align them in tabular format
+find . -type f -printf "%f\t%p\t%u\t%g\t%m\n" | column -t
+
+# now we have the password to bandit4
+exit
+ssh bandit4@bandit.labs.overthewire.org -p 2220
+```
