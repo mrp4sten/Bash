@@ -75,7 +75,7 @@ find . # or find a files in the path using regex
 find . -type f # or find only files
 
 # or display files like a pro
-# <%f\t%p\t%u\t%g\t%m\n"> files/tab&path/tab&user/tab&user_owner/tab&**groups**/tab&mode(permissions code)/next line
+# <%f\t%p\t%u\t%g\t%m\n"> files/tab&path/tab&user/tab&user_owner/tab&groups/tab&mode(permissions code)/next line
 # column -t to split columns automatically and auto-align them in tabular format
 find . -type f -printf "%f\t%p\t%u\t%g\t%m\n" | column -t
 
