@@ -85,3 +85,46 @@ find . -name .hidden | xargs cat
 exit
 ssh bandit4@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 4 >> Level 5
+
+```bash
+# We need to know the file that is only human-readable,
+# for this we can use the command [file] to display the information
+# about the content from each file.
+
+# Note > I recommend you learn about the REGEX(regular expressions)
+file inhere/*
+cat inhere/-file07 # the file with text content
+
+# other way
+find . -name -file* | xargs file
+find . -name -file07 | xargs cat
+
+# other pro way
+cat $(find . -name -file07)
+
+# now we have the password to bandit5
+exit
+ssh bandit5@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 5 >> Level 6
+
+```bash
+# We need know the command find, to this I recommend you use
+# the utility [man] or [tldr] to know how to use correctly this command
+# so we can do the follow command based on the info in OverTheWire:
+
+# The follow instruction basically find a type file with readable permissions,
+# without executable permissions and finally with a size of 1033 bytes using (c) to the end
+# to specify correctly the size in bytes.
+
+# Using xargs to can format the output and also print the content from the file found
+find . -type f -readable ! -executable -size 1033c | xargs cat | xargs
+
+
+# now we have the password to bandit5
+exit
+ssh bandit6@bandit.labs.overthewire.org -p 2220
+```
