@@ -79,6 +79,8 @@ find . -type f # or find only files
 # column -t to split columns automatically and auto-align them in tabular format
 find . -type f -printf "%f\t%p\t%u\t%g\t%m\n" | column -t
 
+find . -name .hidden | xargs cat
+
 # now we have the password to bandit4
 exit
 ssh bandit4@bandit.labs.overthewire.org -p 2220
