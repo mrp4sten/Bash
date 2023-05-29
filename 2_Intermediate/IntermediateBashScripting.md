@@ -128,3 +128,45 @@ find . -type f -readable ! -executable -size 1033c | xargs cat | xargs
 exit
 ssh bandit6@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 6 >> Level 7
+
+```bash
+# The follow command try to find into path [/]
+# with the user bandit7 (the owner)
+# with the group bandit6
+# with of size from 33 bytes
+# Using /dev/null to not print errors (basically without stderr)
+# and finally displaying the content
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null | xargs cat
+
+# now we have the password to bandit5
+exit
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 7 >> Level 8
+
+```bash
+# Find the word millionth into the file to display the password
+grep "millionth" data.txt
+awk '/millionth/' data.txt
+
+# To a better display
+awk '/millionth/' data.txt | awk '{print $2}'
+
+# now we have the password to bandit5
+exit
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 8 >> Level 9
+
+```bash
+# Using [sort] and [uniq]
+cat data.txt | sort | uniq -u
+
+# now we have the password to bandit5
+exit
+ssh bandit7@bandit.labs.overthewire.org -p 2220
+```
