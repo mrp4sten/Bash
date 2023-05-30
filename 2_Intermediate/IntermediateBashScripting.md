@@ -199,3 +199,23 @@ cat data.txt | base64 -d | tr ' ' '\n' | awk END{print}
 exit
 ssh bandit11@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 11 >> Level 12
+
+```bash
+# This level have a hard difficult because you need to know
+# ROT13, but basically is a simple letteeer substitution that replaces letter with
+# the 13th letter after it in the latin alphabet.
+
+# so this is the solution using [tr]
+# reading the output of data.txt we can see that the first charater
+# is <G> and if we count to 13th position in the latin alphabet
+# we can set the substitution in this case <t> is the 13th letter
+
+# abcdefghijklmnopqrstuvwxyz
+cat data.txt | tr '[G-ZA-Fg-za-f]' '[T-ZA-St-za-s]' | awk 'NF{print $NF}'
+
+# now we have the password to bandit5
+exit
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+```
