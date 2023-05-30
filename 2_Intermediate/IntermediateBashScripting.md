@@ -170,3 +170,15 @@ cat data.txt | sort | uniq -u
 exit
 ssh bandit9@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 9 >> Level 10
+
+```bash
+# Using [strings] we can display the human-readable strings
+# and using while and awk to print the password only
+strings data.txt | grep "===" | while read line; do echo "$line"; done | awk 'END{print}' | awk 'NF{print $NF}'
+
+# now we have the password to bandit5
+exit
+ssh bandit10@bandit.labs.overthewire.org -p 2220
+```
