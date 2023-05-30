@@ -182,3 +182,20 @@ strings data.txt | grep "===" | while read line; do echo "$line"; done | awk 'EN
 exit
 ssh bandit10@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 10 >> Level 11
+
+```bash
+# Yoy should know the [base64] decode/encode
+# To encode: echo "example" | base64
+# To decode: echo "example" | base64 | base64 -d
+cat data.txt | base64 -d
+
+# or only the password without text(not necessary)
+# using tr to translate characters or replace
+cat data.txt | base64 -d | tr ' ' '\n' | awk END{print}
+
+# now we have the password to bandit5
+exit
+ssh bandit11@bandit.labs.overthewire.org -p 2220
+```
