@@ -157,7 +157,7 @@ awk '/millionth/' data.txt | awk '{print $2}'
 
 # now we have the password to bandit5
 exit
-ssh bandit7@bandit.labs.overthewire.org -p 2220
+ssh bandit8@bandit.labs.overthewire.org -p 2220
 ```
 
 ### Level 8 >> Level 9
@@ -168,5 +168,5 @@ cat data.txt | sort | uniq -u
 
 # now we have the password to bandit5
 exit
-ssh bandit7@bandit.labs.overthewire.org -p 2220
+ssh bandit9@bandit.labs.overthewire.org -p 2220
 ```
