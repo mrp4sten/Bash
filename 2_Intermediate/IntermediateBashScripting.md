@@ -219,3 +219,55 @@ cat data.txt | tr '[G-ZA-Fg-za-f]' '[T-ZA-St-za-s]' | awk 'NF{print $NF}'
 exit
 ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 12 >> Level 13
+
+```bash
+# In this level we going to use [xxd] command
+# and you should know the what is Hex dump
+# Basically is a hexadecimal view of computer data.
+# also you need know what is hexadecimal. but basically each byte
+# (8 bits) is represented as two-digit hexadecimal number.
+
+# Step 1
+# Copy the content from data.txt
+cat data.txt # copy the content and paste in a new document into your own computer
+
+# Step 2
+# Using [xxd] command to rever hexadecimal content and sending output to a new file
+xxd -r data.txt > data
+
+# Step 3
+# validate the file type using [file]
+file data
+
+# Step 4
+# changing the file type based on the output from the previous command
+mv data data.gzip
+
+# Step 5
+# We have many ways to uncompress the file, using [tar], [bzip2], [gunzip]
+# but we hava a universal tool [7z] I recommend you learn how to use it.
+# You need install 7-zip based on your distribution or operating system.
+7z l data.gzip # if you want display the documents into compress file
+7z x data.gzip # to uncompress
+
+# Step 6
+# If you can see, the file was compressed multiple times.
+# So we do not uncompres many times, we can have a script to uncompress the file.
+rm data2.bin data.txt # Not necessary at the moment
+touch decompressor.sh
+# the command [!$] is used to get the last parameter (in this case <decompresor.sh>)
+chmod +x !$
+# renaming gzip file
+mv data.gzip content.gzip
+
+# Step 7
+# make scripting (you can see the example into level12_to_level13 directory)
+# and execute
+
+
+# now we have the password to bandit5
+exit
+ssh bandit12@bandit.labs.overthewire.org -p 2220
+```
