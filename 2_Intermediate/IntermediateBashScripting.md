@@ -265,9 +265,9 @@ mv data.gzip content.gzip
 # Step 7
 # make scripting (you can see the example into level12_to_level13 directory)
 # and execute
-
+./decompressor.sh
 
 # now we have the password to bandit5
 exit
-ssh bandit12@bandit.labs.overthewire.org -p 2220
+ssh bandit13@bandit.labs.overthewire.org -p 2220
 ```
