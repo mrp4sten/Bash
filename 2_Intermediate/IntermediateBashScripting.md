@@ -319,7 +319,7 @@ ssh -i id_rsa USER@localhost
 
 # For the exercise
 cat sshkey.private
-ssh -i sshkey.private bandit14@localhost
+ssh -i sshkey.private bandit14@localhost -p 2220
 
 # Now connected in bandit14
 cat /etc/bandit_pass/bandit14
