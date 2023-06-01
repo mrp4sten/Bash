@@ -281,11 +281,16 @@ ssh bandit13@bandit.labs.overthewire.org -p 2220
 # is stored on the .ss/authorized_key file on all the computers you want to log in to.
 # > For more details here 👉 <https://help.ubuntu.com/community/SSH/OpenSSH/Keys>
 
-# Step 1
+# Steps for Knowledge base
 # In our computer we can see the ssh config into </etc/ssh/sshd_config>
 # We edit the file with sudo, and uncomment the line <PermitRootLogin yes>
 # and start the service <ssh>
 sudo nvim /etc/ssh/sshd_config
+
+# And if is necessary you can force publuic key authentication adding
+# the next lines to </etc/ssh/sshd_config>
+PasswordAuthentication no
+AuthenticationMethods publickey
 
 # At the moment <sshd.service> is the service in Arch Linux
 # You need to know what is the SSH service based on your
@@ -293,11 +298,24 @@ sudo nvim /etc/ssh/sshd_config
 sudo systemctl start sshd.service
 sudo systemctl status sshd.service
 
-# Generating ssh key
+# Generating ssh key in your user or root user
 ssh-keygen
 ls ~/.ssh/
 
-# and we have two files, private key and the public key
+# Copy and renaming public key
+# To use public key to connection
+cp id_rsa.pub authorized_keys
+
+# other way using [ssh-copy-id]
+ssh-copy-id -i id_rsa USER@locahost
+
+# Try to connect by ssh in or own computer
+# and validate the connections
+ssh USER@localhost
+lsof -i:22
+
+# other way if you already [ssh-copy-id]
+ssh -i id_rsa USER@localhost
 
 exit
 ssh bandit14@bandit.labs.overthewire.org -p 2220
