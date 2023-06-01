@@ -1,8 +1,6 @@
 #!/bin/bash
 # author: mrp4sten
 
-#!/bin/bash
-
 # Function to greet a person
 greet_person() {
   local name=$1
