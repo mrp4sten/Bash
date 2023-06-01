@@ -317,6 +317,13 @@ lsof -i:22
 # other way if you already [ssh-copy-id]
 ssh -i id_rsa USER@localhost
 
+# For the exercise
+cat sshkey.private
+ssh -i sshkey.private bandit14@localhost
+
+# Now connected in bandit14
+cat /etc/bandit_pass/bandit14
+
 exit
 ssh bandit14@bandit.labs.overthewire.org -p 2220
 ```
