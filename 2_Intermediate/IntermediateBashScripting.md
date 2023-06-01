@@ -104,7 +104,7 @@ find . -name -file07 | xargs cat
 # other pro way
 cat $(find . -name -file07)
 
-# now we have the password to bandit5
+
 exit
 ssh bandit5@bandit.labs.overthewire.org -p 2220
 ```
@@ -124,7 +124,7 @@ ssh bandit5@bandit.labs.overthewire.org -p 2220
 find . -type f -readable ! -executable -size 1033c | xargs cat | xargs
 
 
-# now we have the password to bandit5
+
 exit
 ssh bandit6@bandit.labs.overthewire.org -p 2220
 ```
@@ -140,7 +140,7 @@ ssh bandit6@bandit.labs.overthewire.org -p 2220
 # and finally displaying the content
 find / -user bandit7 -group bandit6 -size 33c 2>/dev/null | xargs cat
 
-# now we have the password to bandit5
+
 exit
 ssh bandit7@bandit.labs.overthewire.org -p 2220
 ```
@@ -155,7 +155,7 @@ awk '/millionth/' data.txt
 # To a better display
 awk '/millionth/' data.txt | awk '{print $2}'
 
-# now we have the password to bandit5
+
 exit
 ssh bandit8@bandit.labs.overthewire.org -p 2220
 ```
@@ -166,7 +166,7 @@ ssh bandit8@bandit.labs.overthewire.org -p 2220
 # Using [sort] and [uniq]
 cat data.txt | sort | uniq -u
 
-# now we have the password to bandit5
+
 exit
 ssh bandit9@bandit.labs.overthewire.org -p 2220
 ```
@@ -178,7 +178,6 @@ ssh bandit9@bandit.labs.overthewire.org -p 2220
 # and using while and awk to print the password only
 strings data.txt | grep "===" | while read line; do echo "$line"; done | awk 'END{print}' | awk 'NF{print $NF}'
 
-# now we have the password to bandit5
 exit
 ssh bandit10@bandit.labs.overthewire.org -p 2220
 ```
@@ -195,7 +194,6 @@ cat data.txt | base64 -d
 # using tr to translate characters or replace
 cat data.txt | base64 -d | tr ' ' '\n' | awk END{print}
 
-# now we have the password to bandit5
 exit
 ssh bandit11@bandit.labs.overthewire.org -p 2220
 ```
@@ -215,7 +213,6 @@ ssh bandit11@bandit.labs.overthewire.org -p 2220
 # abcdefghijklmnopqrstuvwxyz
 cat data.txt | tr '[G-ZA-Fg-za-f]' '[T-ZA-St-za-s]' | awk 'NF{print $NF}'
 
-# now we have the password to bandit5
 exit
 ssh bandit12@bandit.labs.overthewire.org -p 2220
 ```
@@ -267,7 +264,41 @@ mv data.gzip content.gzip
 # and execute
 ./decompressor.sh
 
-# now we have the password to bandit5
+
 exit
 ssh bandit13@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 13 >> Level 14
+
+```bash
+# In this level you need to have the Knowledge base in
+# === SSH/OpenSSH/Keys ===
+# Public Key authentication is more secure than password authentication.
+# With public key authentication the authenticating entity has a public key
+# and a private key. Each key is a large number with special mathematical properties.
+# The private key os kept on the computer uyou log in from, while the public key
+# is stored on the .ss/authorized_key file on all the computers you want to log in to.
+# > For more details here 👉 <https://help.ubuntu.com/community/SSH/OpenSSH/Keys>
+
+# Step 1
+# In our computer we can see the ssh config into </etc/ssh/sshd_config>
+# We edit the file with sudo, and uncomment the line <PermitRootLogin yes>
+# and start the service <ssh>
+sudo nvim /etc/ssh/sshd_config
+
+# At the moment <sshd.service> is the service in Arch Linux
+# You need to know what is the SSH service based on your
+# Operating system or Linux distro
+sudo systemctl start sshd.service
+sudo systemctl status sshd.service
+
+# Generating ssh key
+ssh-keygen
+ls ~/.ssh/
+
+# and we have two files, private key and the public key
+
+exit
+ssh bandit14@bandit.labs.overthewire.org -p 2220
 ```
