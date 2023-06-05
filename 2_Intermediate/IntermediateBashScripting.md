@@ -354,7 +354,21 @@ echo "fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq" | nc localhost 30000
 telnet localhost 30000
 
 # Now connected in bandit15
-
 exit
 ssh bandit15@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 15 >> Level 16
+
+```bash
+# Note > Tho understand this level we should know about
+# - Secure Socket Layer / Transport Layer Security
+# - OpenSS: Cookbook - Testing with OpenSSL
+
+# using [openssl ]command with [s_client] like this
+openssl s_client -connect 127.0.0.1:30001
+
+# Now connected in bandit16
+exit
+ssh bandit16@bandit.labs.overthewire.org -p 2220
 ```
