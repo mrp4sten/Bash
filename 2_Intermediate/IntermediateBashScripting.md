@@ -331,6 +331,13 @@ ssh bandit14@bandit.labs.overthewire.org -p 2220
 ### Level 14 >> Level 15
 
 ```bash
+# Note > Tho understand this level we should know about
+# - How the internet works
+# - IP Address
+# - Localhost
+# - Ports
+# - Port (computer networking)
+
 # In this level we can try tri validate
 # if the port 30000 is open with this
 echo '' > /dev/tcp/127.0.0.1/30000
