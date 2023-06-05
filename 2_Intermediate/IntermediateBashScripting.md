@@ -327,3 +327,27 @@ cat /etc/bandit_pass/bandit14
 exit
 ssh bandit14@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 14 >> Level 15
+
+```bash
+# In this level we can try tri validate
+# if the port 30000 is open with this
+echo '' > /dev/tcp/127.0.0.1/30000
+echo $?
+
+# Or we try to be funny
+bash -c "echo '' > /dev/tcp/127.0.0.1/30000" 2>/dev/null && echo "[*] The port is open" || echo "[*] The port is closed"
+
+# Now we can access to the port using different commands like
+# [nc]
+echo "fGrHPx402xGC7U7rXKDaxiWFTOiF0ENq" | nc localhost 30000
+
+# [telnet]
+telnet localhost 30000
+
+# Now connected in bandit15
+
+exit
+ssh bandit15@bandit.labs.overthewire.org -p 2220
+```
