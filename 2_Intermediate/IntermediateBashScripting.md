@@ -386,16 +386,11 @@ nmap --open T5 -v -n  -p31000-32000 127.0.0.1
 # what is the correct port
 openssl s_client -connect 127.0.0.1:31790
 
-# we can copy the rsa private key
-# making a temp directory
-# paste the rsa private key
-# assing the correct permissions
-# and we can use it to connect using rsa private key
-mktemp -d
-cd /tmp/tmp.example
-nano id_rsa
-chmod 600 id_rsa
-ssh -i id_rsa bandit17@localhost
+# we can copy the rsa private key\
+# in own computer and use it like level 14
+nano sshkey17.private
+chmod 600 sshkey17.private # Permissions normally used in rsa private keys
+ssh -i sshkey17.private bandit17@bandit.labs.overthewire.org -p 2220
 
 # Now connected in bandit17
 exit
