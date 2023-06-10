@@ -391,8 +391,16 @@ openssl s_client -connect 127.0.0.1:31790
 nano sshkey17.private
 chmod 600 sshkey17.private # Permissions normally used in rsa private keys
 ssh -i sshkey17.private bandit17@bandit.labs.overthewire.org -p 2220
+```
 
-# Now connected in bandit17
+### Level 17 >> Level 18
+
+```bash
+# We only need to use [diff] command
+ls
+diff passwords.old passwords.new
+
+# Now connected in bandit18
 exit
-ssh bandit17@bandit.labs.overthewire.org -p 2220
+ssh bandit18@bandit.labs.overthewire.org -p 2220
 ```
