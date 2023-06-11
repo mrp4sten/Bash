@@ -428,3 +428,18 @@ cat /etc/bandit_pass/bandit18
 exit
 ssh bandit19@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 19 >> Level 20
+
+```bash
+# In this level you may knwow about <setuid>
+
+# we can execute the binary file ./bandit20-do
+# using [bash -p] to use <uid>
+./bandit20-do bash -p
+cat /etc/bandit_pass/bandit20
+
+# Now connected in bandit20
+exit
+ssh bandit20@bandit.labs.overthewire.org -p 2220
+```
