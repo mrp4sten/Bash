@@ -443,3 +443,33 @@ cat /etc/bandit_pass/bandit20
 exit
 ssh bandit20@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 20 >> Level 21
+
+```bash
+# We need to know about knlowedge base about Internet
+# and how it works, and also we need to use [nc]
+# and also I recommend you use tmux or somethin like this
+# to make 2 connections to bandit 21
+
+# Step 1
+# use [nc] command to open a conection in a specific port
+# and listening at port
+nc -nlvp 5757
+
+# Step 2
+# in the other bandit20 connection we going to execute the
+# binary file
+./suconnect 5757
+
+# Step 3
+# go back to other connection where we put the command
+# [nc -nlvp 5757]
+# and we going to paste the bandit20 password and finally
+# the bandit21 password should be displayed correctly
+
+
+# Now connected in bandit21
+exit
+ssh bandit21@bandit.labs.overthewire.org -p 2220
+```
