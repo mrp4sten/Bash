@@ -496,3 +496,25 @@ cat /usr/bin/cronjob_bandit22.sh
 exit
 ssh bandit22@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 22 >> Level 223
+
+```bash
+# Like the previous leven we need analyze de /etc/cron.d/ jobs
+ls /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit23
+cat /usr/bin/cronjob_bandit23.sh
+
+# Based on the script we can find out the tmp file where the password it saved
+echo I am user bandit23 | md5sum | cut -d ' ' -f 1
+
+# or better
+echo I am user bandit23 | md5sum | awk '{print $1}'
+
+# and we can use the output of previous command
+cat /tmp/8ca319486bfbbc3663ea0fbe81326349
+
+# Now connected in bandit23
+exit
+ssh bandit23@bandit.labs.overthewire.org -p 2220
+```
