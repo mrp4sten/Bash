@@ -404,3 +404,27 @@ diff passwords.old passwords.new
 exit
 ssh bandit18@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 18 >> Level 19
+
+```bash
+# we can connect to bandit18 but the .bashrc file has modified to log us
+# when we log in.
+
+# But we can execute a bash to dont log out
+ssh bandit18@bandit.labs.overthewire.org -p 2220 bash
+
+# Now you cant see the CLI but we can test with a [ls] or [whoami]
+ls
+whoami
+
+# And finally we can copy the password
+cat readme
+
+# or
+cat /etc/bandit_pass/bandit18
+
+# Now connected in bandit19
+exit
+ssh bandit19@bandit.labs.overthewire.org -p 2220
+```
