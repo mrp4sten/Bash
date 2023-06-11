@@ -473,3 +473,26 @@ nc -nlvp 5757
 exit
 ssh bandit21@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 21 >> Level 22
+
+```bash
+# For this level I recommend you investigate about
+# [cron]
+
+# First we should analyze the files into /etc/cron.d
+ls -l /etc/cron.d
+cat /etc/cron.d/cronjob_bandit22
+
+# And we can see the content of conjob_bandit22
+# that a script is executed we can see the content of this script
+cat /usr/bin/cronjob_bandit22.sh
+
+# Based on the previous display we can see that the password
+# of bandit22 is saved on a temp file so we can display the content from this
+# temporal file
+
+# Now connected in bandit22
+exit
+ssh bandit22@bandit.labs.overthewire.org -p 2220
+```
