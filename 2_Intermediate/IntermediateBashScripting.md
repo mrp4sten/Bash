@@ -648,4 +648,8 @@ mktemp -d
 cd /tmp/example
 git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
 cd repo
+git branch -r
+git checkout origin/dev
+git branch
+cat README.md
 ```
