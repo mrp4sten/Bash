@@ -605,3 +605,14 @@ cat /usr/bin/showtext
 # and write > shell
 # now we have a shell with bandit16
 ```
+
+### Level 26 >> Level 27
+
+```bash
+# This is so easy
+./bandit27-do
+./bandit27-do whoami
+./bandit27-do bash -p
+whoami
+cat /etc/bandit_pass/bandit27
+```
