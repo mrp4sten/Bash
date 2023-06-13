@@ -639,3 +639,13 @@ cd repo
 git log -p
 # review it the log and use the password
 ```
+
+### Level 29 >> Level 30
+
+```bash
+# You only need to know git
+mktemp -d
+cd /tmp/example
+git clone ssh://bandit29-git@localhost:2220/home/bandit29-git/repo
+cd repo
+```
