@@ -576,3 +576,32 @@ done
 sort result.txt | grep -v -E "Wrong|Please"
 
 ```
+
+### Level 25 >> Level 26
+
+```bash
+# First we try to connect but the bandit16 session is closed
+mkdir /tmp/mrp4sten
+cd /tmp/mrp4sten
+cp ~/bandit26.sshkey .
+ssh -i bandit26.sshkey bandit26@localhost -p 2220
+
+# validating what is the shell for bandit25
+cat /etc/passwd | grep bandit25
+
+# validating what is the shell for bandit26
+cat /etc/passwd | grep bandit26
+
+# the output of the previous command display a file
+cat /usr/bin/showtext
+
+# You should know about the command [more]
+# and also now if we using tmux and we make the terminal small
+# we can exploit the [more] command
+# We can click on <v>
+# after click <shift> + <:>
+# and write > set shell=/bin/bash
+# after click <shift> + <:>
+# and write > shell
+# now we have a shell with bandit16
+```
