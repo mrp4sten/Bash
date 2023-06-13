@@ -627,3 +627,15 @@ git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
 # paste the bandit27 password
 cat repo/README
 ```
+
+### Level 28 >> Level 29
+
+```bash
+# You only need to know git
+mkdir /tmp/mrp4sten
+cd /tmp/mrp4sten
+git clone ssh://bandit28-git@localhost:2220/home/bandit28-git/repo
+cd repo
+git log -p
+# review it the log and use the password
+```
