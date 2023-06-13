@@ -665,3 +665,21 @@ cd repo
 git tag
 git show secret
 ```
+
+### Level 31 >> Level 32
+
+```bash
+# You only need to know git
+mktemp -d
+cd /tmp/example
+git clone ssh://bandit31-git@localhost:2220/home/bandit31-git/repo
+cd repo
+cat README.md
+touch key.txt
+echo May I come in? > key.txt
+cat key.txt
+rm .gitignore
+git add key.txt
+git commit -m "Adding new key"
+git push -u origin master
+```
