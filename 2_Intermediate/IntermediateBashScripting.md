@@ -683,3 +683,10 @@ git add key.txt
 git commit -m "Adding new key"
 git push -u origin master
 ```
+
+### Level 33
+
+```bash
+# This is the latest level
+$0 # to set a new bash
+```
