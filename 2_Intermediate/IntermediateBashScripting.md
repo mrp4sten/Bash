@@ -616,3 +616,14 @@ cat /usr/bin/showtext
 whoami
 cat /etc/bandit_pass/bandit27
 ```
+
+### Level 27 >> Level 28
+
+```bash
+# You only need to know git
+mkdir /tmp/mrp4sten
+cd /tmp/mrp4sten
+git clone ssh://bandit27-git@localhost:2220/home/bandit27-git/repo
+# paste the bandit27 password
+cat repo/README
+```
