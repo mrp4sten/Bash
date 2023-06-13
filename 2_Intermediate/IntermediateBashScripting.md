@@ -653,3 +653,15 @@ git checkout origin/dev
 git branch
 cat README.md
 ```
+
+### Level 30 >> Level 31
+
+```bash
+# You only need to know git
+mktemp -d
+cd /tmp/example
+git clone ssh://bandit30-git@localhost:2220/home/bandit30-git/repobandit29-git/repo
+cd repo
+git tag
+git show secret
+```
